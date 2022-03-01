@@ -1,0 +1,7 @@
+<% @moyNote = 0 %>
+<% @nbNote = 0 %>
+<% @article.comments.each do |comment| %>
+    <% @moyNote = comment.note + @moyNote %>
+    <% @nbNote = @nbNote + 1 %>
+<% end %>
+<h3><%= @moyNote / @nbNote.to_f %> / 5☺</h3>

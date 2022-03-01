@@ -1,0 +1,21 @@
+<%= render "articles" %>
+
+<h1>Nom : <%= @article.title %></h1>
+<p>Description : <%= @article.body %></p>
+
+<ul>
+<li><%= link_to "Modifier", edit_article_path(@article) %></li>
+<li><%= button_to "Destroy", @article , #je suis obliger de mettre un boutton et non pas un link_to car ça ne marchait pas (j'ai trouvé ça sur des forums, tout comme pour le
+                                        #destroy des commentaires)
+                        method: :delete, 
+                        data: { confirm: 'Are you sure?' } %></li> #Cela ne fonctionne pas, je pense que c'est à cause de la version (ça ne génére pas d'érreur mais ne fonctionne pas)
+</ul>
+
+<h2> Moyenne des notes </h2>
+<%= render 'comments/note' %>
+
+<h2>Commentaires :</h2>
+<%= render @article.comments %>
+
+<h2> Ajouter un commentaire </h2>
+<%= render 'comments/form' %>
